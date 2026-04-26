@@ -1,0 +1,62 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-sobriquets}
+      POSTGRES_USER: ${POSTGRES_USER:-sobriquets}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sobriquets_dev}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./backend/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sobriquets} -d ${POSTGRES_DB:-sobriquets}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    ports:
+      - "${API_PORT:-8000}:8000"
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-sobriquets}
+      POSTGRES_USER: ${POSTGRES_USER:-sobriquets}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sobriquets_dev}
+      EMBEDDING_PROVIDER: ${EMBEDDING_PROVIDER:-sentence_transformers}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-all-MiniLM-L6-v2}
+      EMBEDDING_DIMENSION: ${EMBEDDING_DIMENSION:-384}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_API_BASE: ${OPENAI_API_BASE:-https://api.openai.com/v1}
+      AGENT_LLM_PROVIDER: ${AGENT_LLM_PROVIDER:-anthropic}
+      AGENT_LLM_MODEL: ${AGENT_LLM_MODEL:-claude-sonnet-4-20250514}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      WIKI_PATH: /wiki
+      WIKI_PAGES_PATH: /wiki/pages
+      WIKI_RAW_SOURCES_PATH: /wiki/raw-sources
+      API_HOST: 0.0.0.0
+      API_PORT: 8000
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
+    volumes:
+      - ./backend:/app
+      - ./wiki:/wiki
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: http://backend:8000
+    volumes:
+      - ./frontend/src:/app/src
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
