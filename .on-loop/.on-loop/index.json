@@ -1,0 +1,12 @@
+{
+  "sessions": [
+    {
+      "session_id": "cb1dfeca-c575-4319-92ee-e035a8de027f",
+      "session_name": "20260426_183343_personal-knowledge-wiki-chatbot",
+      "branch": "on-loop/personal-knowledge-wiki-chatbot",
+      "prompt_summary": "Personal knowledge wiki + chatbot with pgvector, FastAPI, React, LangGraph",
+      "status": "active",
+      "started_at": "2026-04-26T18:33:43Z"
+    }
+  ]
+}

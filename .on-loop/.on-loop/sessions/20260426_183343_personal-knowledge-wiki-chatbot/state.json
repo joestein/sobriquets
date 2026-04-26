@@ -1,0 +1,9 @@
+{
+  "version": "1.1",
+  "session_id": "cb1dfeca-c575-4319-92ee-e035a8de027f",
+  "phase": "GIT",
+  "prompt": "Build a personal knowledge wiki system following Karpathy's LLM wiki pattern. Includes: (1) A Claude Code skill for researching domains of interest that produces markdown wiki pages from internet system-of-record sources (read-only, not edited for LLM). (2) A full-stack application with React TypeScript frontend chatbot, Python FastAPI backend, LangGraph agent, and pgvector database. (3) A script to ingest skill-generated markdown into pgvector. (4) The wiki serves as a personal 360-degree knowledge base across all domains of interest.",
+  "branch": "on-loop/personal-knowledge-wiki-chatbot",
+  "worktree_path": ".claude/worktrees/personal-knowledge-wiki-chatbot",
+  "session_dir": ".on-loop/sessions/20260426_183343_personal-knowledge-wiki-chatbot"
+}

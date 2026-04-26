@@ -1,0 +1,23 @@
+{
+  "name": "sobriquets",
+  "version": "0.1.0",
+  "description": "Personal knowledge wiki system following Karpathy's LLM Wiki pattern. Research any domain, build structured wiki pages, ingest into pgvector, and chat with your knowledge base.",
+  "author": {
+    "name": "Joe Stein",
+    "url": "https://github.com/joestein"
+  },
+  "repository": "https://github.com/joestein/sobriquets",
+  "license": "MIT",
+  "homepage": "https://github.com/joestein/sobriquets",
+  "keywords": [
+    "knowledge-base",
+    "wiki",
+    "research",
+    "rag",
+    "pgvector",
+    "langgraph",
+    "chatbot",
+    "karpathy"
+  ],
+  "commands": ["./.claude/commands"]
+}
