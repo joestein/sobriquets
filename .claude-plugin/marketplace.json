@@ -1,0 +1,35 @@
+{
+  "name": "sobriquets-marketplace",
+  "owner": {
+    "name": "Joe Stein",
+    "url": "https://github.com/joestein"
+  },
+  "plugins": [
+    {
+      "name": "sobriquets",
+      "source": {
+        "source": "github",
+        "repo": "joestein/sobriquets"
+      },
+      "version": "0.1.0",
+      "description": "Personal knowledge wiki system following Karpathy's LLM Wiki pattern. Research any domain, build structured wiki pages, ingest into pgvector, and chat with your knowledge base.",
+      "author": {
+        "name": "Joe Stein"
+      },
+      "homepage": "https://github.com/joestein/sobriquets",
+      "repository": "https://github.com/joestein/sobriquets",
+      "license": "MIT",
+      "keywords": [
+        "knowledge-base",
+        "wiki",
+        "research",
+        "rag",
+        "pgvector",
+        "langgraph",
+        "chatbot",
+        "karpathy"
+      ],
+      "category": "productivity"
+    }
+  ]
+}

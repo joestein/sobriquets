@@ -2,6 +2,33 @@
 
 A personal knowledge wiki system following Karpathy's three-layer LLM Wiki pattern. Use the `/research` Claude Code skill to build structured wiki pages from authoritative sources, then chat with your knowledge base through a streaming React frontend backed by a LangGraph agent and pgvector.
 
+## Installation
+
+### Option 1: Clone the repo (full system)
+
+Clone the repo to use both the `/research` skill and the full-stack chat application:
+
+```bash
+git clone https://github.com/joestein/sobriquets.git
+cd sobriquets
+```
+
+The `/research` skill is automatically available as a Claude Code slash command when you open this project.
+
+### Option 2: Install as a Claude Code plugin (skill only)
+
+Install the `/research` skill into any project without cloning the full repo:
+
+```bash
+# Add the marketplace
+claude plugin marketplace add github.com/joestein/sobriquets
+
+# Install the plugin
+claude plugin install sobriquets@sobriquets-marketplace
+```
+
+Once installed, the skill is available as `/sobriquets:research <topic>` in any project.
+
 ## Quick Start
 
 ```bash
@@ -94,14 +121,17 @@ sobriquets/
   docker-compose.yml         # All services
   .env.example               # Configuration template
 
+  .claude-plugin/
+    plugin.json              # Plugin metadata (v0.1.0)
+    marketplace.json         # Marketplace distribution config
+
   wiki/                      # Knowledge base (git-tracked)
     schema.md                # Wiki structure conventions
     raw-sources/             # Immutable source snapshots
     pages/                   # Generated wiki pages
 
-  skills/research/           # Research skill prompt (legacy location)
   .claude/commands/
-    research.md              # /research slash command (active)
+    research.md              # /research slash command
 
   backend/
     sobriquets/
