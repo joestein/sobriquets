@@ -38,11 +38,10 @@ export async function* chatStream(
     const lines = buffer.split("\n");
     buffer = lines.pop() || "";
 
-    let currentEventType = "";
-
     for (const line of lines) {
       if (line.startsWith("event: ")) {
-        currentEventType = line.slice(7).trim();
+        // Event type is embedded in the JSON data, skip the SSE event line
+        continue;
       } else if (line.startsWith("data: ")) {
         const data = line.slice(6);
         try {

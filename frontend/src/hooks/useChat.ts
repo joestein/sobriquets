@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import { chatStream } from "../api/client";
-import type { Message, SourceRef } from "../api/types";
+import type { Message } from "../api/types";
 
 function generateId(): string {
   return crypto.randomUUID();

@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install pytest pytest-asyncio python-frontmatter fastapi httpx pydantic-settings anyio
+          pip install pytest pytest-asyncio python-frontmatter fastapi httpx pydantic-settings anyio "langchain-core>=0.3.0" "pgvector>=0.3.0" "sqlalchemy[asyncio]>=2.0.0" asyncpg "langgraph>=0.2.0" "langchain-anthropic>=0.2.0"
 
       - name: Run tests
         run: pytest tests/ -v
