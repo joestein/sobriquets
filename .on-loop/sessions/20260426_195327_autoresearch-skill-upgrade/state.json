@@ -1,0 +1,9 @@
+{
+  "version": "1.1",
+  "session_id": "eca704e6-9ad8-4589-a35e-23ff008b2827",
+  "phase": "GIT",
+  "prompt": "Upgrade the /research skill to follow Karpathy's autoresearch pattern: autonomous iterative research loops with configurable effort levels that stress-test findings across multiple passes before accepting them into the wiki.",
+  "branch": "on-loop/autoresearch-skill-upgrade",
+  "worktree_path": ".claude/worktrees/autoresearch-skill-upgrade",
+  "session_dir": ".on-loop/sessions/20260426_195327_autoresearch-skill-upgrade"
+}

@@ -15,10 +15,16 @@ Personal knowledge wiki system following Karpathy's three-layer LLM Wiki pattern
 ## Skills
 
 ### /research
-Invoke with: `/research <topic>`
+Invoke with: `/research <topic> [--effort <1-5>] [--loops <N>] [--focus <subtopic>]`
 Prompt file: `.claude/commands/research.md`
 
-Researches a topic using web search, captures raw sources, and generates structured wiki pages. See `.claude/commands/research.md` for full instructions.
+Researches a topic using iterative autonomous loops. Each loop searches for sources, evaluates them (authority/relevance/recency scoring), stress-tests findings against existing wiki content, synthesizes validated information into wiki pages, and logs its work.
+
+- **--effort**: Controls depth (1=quick, 2=standard default, 3=thorough, 4=exhaustive, 5=definitive)
+- **--loops**: Override the default loop count for the chosen effort level
+- **--focus**: Constrain research to a specific subtopic
+
+See `.claude/commands/research.md` for the full skill prompt.
 
 ## Development Workflow
 
